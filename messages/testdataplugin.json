@@ -1,0 +1,12 @@
+{
+  "commandDescription": "print a greeting and your org IDs",
+  "nameFlagDescription": "name to print",
+  "forceFlagDescription": "example boolean flag",
+  "errorNoOrgResults": "No results found for the org '%s'.",
+  "schemaDescription": "Mockaroo Schema Id",
+  "objectDescription" : "Name of the Salesforce object",
+  "outputdirDescription" : "path of the output directory of file",
+  "formatDescription" : "file format of the output. Supported values are json/csv",
+  "countDescription" : "specify the number of rows of data needed",
+  "apiKeyMissingMessage" : "Mockaroo API key is not configured. Add your api key to environment variable MAPIKEY"
+}

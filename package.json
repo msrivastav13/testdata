@@ -1,0 +1,64 @@
+{
+  "name": "testdata",
+  "version": "0.0.0",
+  "bugs": "https://github.com/Projects/testdata/issues",
+  "dependencies": {
+    "@oclif/command": "^1",
+    "@oclif/config": "^1",
+    "@oclif/errors": "^1",
+    "@salesforce/command": "^2",
+    "@salesforce/core": "^2",
+    "csvjson": "^5.1.0",
+    "node-fetch": "^2.6.0",
+    "tslib": "^1"
+  },
+  "devDependencies": {
+    "@oclif/dev-cli": "^1",
+    "@oclif/plugin-help": "^2",
+    "@salesforce/dev-config": "1.4.1",
+    "@types/jest": "^25.2.1",
+    "@types/node": "^10",
+    "@types/node-fetch": "^2.5.7",
+    "globby": "^8",
+    "jest": "^26.0.1",
+    "nyc": "^14",
+    "ts-jest": "^25.5.1",
+    "ts-node": "^8",
+    "tslint": "^5",
+    "typescript": "3"
+  },
+  "engines": {
+    "node": ">=8.0.0"
+  },
+  "files": [
+    "/lib",
+    "/messages",
+    "/npm-shrinkwrap.json",
+    "/oclif.manifest.json"
+  ],
+  "homepage": "https://github.com/Projects/testdata",
+  "keywords": [
+    "sfdx-plugin"
+  ],
+  "license": "MIT",
+  "oclif": {
+    "commands": "./lib/commands",
+    "bin": "sfdx",
+    "topics": {
+      "hello": {
+        "description": "Commands to say hello."
+      }
+    },
+    "devPlugins": [
+      "@oclif/plugin-help"
+    ]
+  },
+  "repository": "Projects/testdata",
+  "scripts": {
+    "postpack": "rm -f oclif.manifest.json",
+    "posttest": "tslint -p test -t stylish",
+    "prepack": "rm -rf lib && tsc -b && oclif-dev manifest && oclif-dev readme",
+    "test": "jest --runInBand",
+    "version": "oclif-dev readme && git add README.md"
+  }
+}
