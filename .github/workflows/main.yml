@@ -15,7 +15,6 @@ jobs:
     # prepare node environment and install dependencies
     - uses: actions/checkout@v2
     - name: Install Dependencies
-      uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
       run: yarn install
