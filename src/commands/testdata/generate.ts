@@ -22,7 +22,7 @@ export default class Generate extends SfdxCommand {
     `Generates testdata from mockaroo schemaid and creates a json file Contact.json in ./data directory
       $ sfdx testdata:generate --schemaid=eax36ba0 --sobject=Contact`,
     `Generates testdata from mockaroo schemaid and creates a csv file Contact.csv in ./data directory
-      $ sfdx testdata:generate --schemaid=eax36ba0 --sobject=Contact --outputdir='./data' --format=csv`
+      $ sfdx testdata:generate --schemaid=eax36ba0 --sobject=Contact --outputdir=./data --format=csv`
   ];
 
   protected static flagsConfig = {
@@ -180,14 +180,14 @@ export default class Generate extends SfdxCommand {
           throw err;
         }
       }
-      finalresponse = {
-        sucess: true,
-        result: this.flags.sobject +
-          '.csv' +
-          ' file successfully generated at ' +
-          filepath
-      };
     });
+    finalresponse = {
+      sucess: true,
+      result: this.flags.sobject +
+        '.csv' +
+        ' file successfully generated at ' +
+        filepath
+    };
     this.ux.log(finalresponse['result']);
     return finalresponse;
   }
