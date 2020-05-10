@@ -6,7 +6,8 @@ A plugin for Salesforce DX CLI that provides ability to generate test data using
 You will need to sign up for the mockaroo API services and generate a schema.
 
 [![Version](https://img.shields.io/npm/v/seedmockdata.svg)](https://www.npmjs.com/package/seedmockdata)
-![Plugin build status](https://github.com/msrivastav13/testdata/workflows/testData%20sfdx%20plugin%20testcases/badge.svg?branch=master)
+![sfdx plugin testcases](https://github.com/msrivastav13/testdata/workflows/sfdx%20plugin%20testcases/badge.svg?branch=master)
+![release plugin](https://github.com/msrivastav13/testdata/workflows/release%20plugin/badge.svg?branch=master)
 [![codecov](https://codecov.io/gh/msrivastav13/testdata/branch/master/graph/badge.svg)](https://codecov.io/gh/msrivastav13/testdata)
 [![Downloads/week](https://img.shields.io/npm/dw/testdata.svg)](https://npmjs.org/package/testdata)
 [![License](https://img.shields.io/npm/l/testdata.svg)](https://github.com/Projects/testdata/blob/master/package.json)
