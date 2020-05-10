@@ -1,33 +1,42 @@
-testdata
+testdata sfdx-plugin
 ========
 
+A plugin for Salesforce DX CLI that provides ability to generate test data using mockaroo schema
 
+You will need to sign up for the mockaroo API services and generate a schema.
 
 [![Version](https://img.shields.io/npm/v/testdata.svg)](https://npmjs.org/package/testdata)
-[![CircleCI](https://circleci.com/gh/Projects/testdata/tree/master.svg?style=shield)](https://circleci.com/gh/Projects/testdata/tree/master)
-[![Appveyor CI](https://ci.appveyor.com/api/projects/status/github/Projects/testdata?branch=master&svg=true)](https://ci.appveyor.com/project/heroku/testdata/branch/master)
-[![Codecov](https://codecov.io/gh/Projects/testdata/branch/master/graph/badge.svg)](https://codecov.io/gh/Projects/testdata)
-[![Greenkeeper](https://badges.greenkeeper.io/Projects/testdata.svg)](https://greenkeeper.io/)
-[![Known Vulnerabilities](https://snyk.io/test/github/Projects/testdata/badge.svg)](https://snyk.io/test/github/Projects/testdata)
+![Plugin build status](https://github.com/msrivastav13/testdata/workflows/testData%20sfdx%20plugin%20testcases/badge.svg?branch=master)
+[![codecov](https://codecov.io/gh/msrivastav13/testdata/branch/master/graph/badge.svg)](https://codecov.io/gh/msrivastav13/testdata)
 [![Downloads/week](https://img.shields.io/npm/dw/testdata.svg)](https://npmjs.org/package/testdata)
 [![License](https://img.shields.io/npm/l/testdata.svg)](https://github.com/Projects/testdata/blob/master/package.json)
 
-<!-- toc -->
-<!-- tocstop -->
-<!-- install -->
-<!-- usage -->
-```sh-session
-$ npm install -g testdata
-$ sfdx COMMAND
-running command...
-$ sfdx (-v|--version|version)
-testdata/0.0.0 darwin-x64 node-v14.1.0
-$ sfdx --help [COMMAND]
+## Setup
+
+### **Install as plugin (Recommended approach for Installing)**
+
+ Install plugin using command : `sfdx plugins:install mo-dx-plugin`
+
+
+### **Install from source(Preferred approach for debugging and enhancing the plugin)**
+1. Install the SDFX CLI.
+
+2. Clone the repository: `git clone git@github.com:msrivastav13/mo-dx-plugin.git`
+
+3. Install using yarn: `yarn install`
+
+4. Link the plugin: `sfdx plugins:link` .
+
+## Prequsite
+
+1. Get your mockaroo api key from your Account Settings. You can find under MyAccount section
+
+2. Set the MAPIKEY environment variable. On MAC OSX for session based type '$ export MAPIKEY=<apikey>'
+
+3. Create a Schema mapping in mockaroo. Note that always choose one field with name  externalId and map to an Id function in mockaroo
+
 USAGE
-  $ sfdx COMMAND
-...
-```
-<!-- usagestop -->
+
 <!-- commands -->
 * [`sfdx testdata:generate -s <string> [-o <string>] [-d <string>] [-f <string>] [-c <integer>] [--json] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]`](#sfdx-testdatagenerate--s-string--o-string--d-string--f-string--c-integer---json---loglevel-tracedebuginfowarnerrorfataltracedebuginfowarnerrorfatal)
 
@@ -70,5 +79,5 @@ EXAMPLES
          $ sfdx testdata:generate --schemaid=eax36ba0 --sobject=Contact --outputdir='./data' --format=csv
 ```
 
-_See code: [src/commands/testdata/generate.ts](https://github.com/Projects/testdata/blob/v0.0.0/src/commands/testdata/generate.ts)_
+_See code: [src/commands/testdata/generate.ts](https://github.com/msrivastav13/testdata/blob/master/src/commands/testdata/generate.ts)_
 <!-- commandsstop -->
