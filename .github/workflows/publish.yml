@@ -35,9 +35,9 @@ jobs:
       with:
         registry-url: 'https://registry.npmjs.org/'
     - env:
-        NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
       name : Release plugin
-      run: npm publish
+      run: npm publish --access public
       
     # submit to codecov repository
     - name : Report CodeCoverage on codecov
