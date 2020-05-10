@@ -29,11 +29,16 @@ jobs:
     # run tests
     - name : Run tests
       run: yarn test
-    # release plugin
-    - name : Release plugin
+    # node set up and publish
+    - name: Setup Node.js
+    uses: actions/setup-node@v1
+    with:
+      registry-url: 'https://registry.npm.org'
+    - env:
+        NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+      name : Release plugin
       run: npm publish
-      env: # More info about the environment variables in the README
-        NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }} # You need to set this in your repo settings
+      
     # submit to codecov repository
     - name : Report CodeCoverage on codecov
       run : |
