@@ -32,7 +32,6 @@ jobs:
     - name : Release plugin
       run: npm publish
       env: # More info about the environment variables in the README
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Leave this as is, it's automatically generated
         NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }} # You need to set this in your repo settings
     # submit to codecov repository
     - name : Report CodeCoverage on codecov
