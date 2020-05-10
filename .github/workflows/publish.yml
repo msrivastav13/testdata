@@ -31,9 +31,9 @@ jobs:
       run: yarn test
     # node set up and publish
     - name: Setup Node.js
-    uses: actions/setup-node@v1
-    with:
-      registry-url: 'https://registry.npm.org'
+      uses: actions/setup-node@v1
+      with:
+        registry-url: 'https://registry.npm.org'
     - env:
         NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
       name : Release plugin
