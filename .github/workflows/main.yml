@@ -4,6 +4,7 @@ on: [push]
 
 jobs:
   build:
+    name: testData sfdx plugin testcases
     runs-on: ubuntu-latest
 
     strategy:
@@ -11,14 +12,12 @@ jobs:
         node-version: [8.x, 10.x, 12.x]
 
     steps:
-    # prepare node environment
+    # prepare node environment and install dependencies
+    - name: Install Dependencies
     - uses: actions/checkout@v2
-    - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
-    # install dependencies
-    - name: Install Dependencies
       run: yarn install
     # build project
     - name: Build project
