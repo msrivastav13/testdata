@@ -14,17 +14,21 @@
   },
   "devDependencies": {
     "@oclif/dev-cli": "^1",
+    "@oclif/test": "^1",
     "@oclif/plugin-help": "^2",
     "@salesforce/dev-config": "1.4.1",
-    "@types/jest": "^25.2.1",
     "@types/node": "^10",
+    "@types/mocha": "^5",
     "@types/node-fetch": "^2.5.7",
+    "@types/chai": "^4.1.7",
+    "chai": "^4.2.0",
     "globby": "^8",
-    "jest": "^26.0.1",
+    "nock": "^12.0.3",
     "nyc": "^14",
-    "ts-jest": "^25.5.1",
     "ts-node": "^8",
     "tslint": "^5",
+    "mocha": "^5",
+    "sinon": "5",
     "typescript": "3"
   },
   "engines": {
@@ -58,7 +62,7 @@
     "postpack": "rm -f oclif.manifest.json",
     "posttest": "tslint -p test -t stylish",
     "prepack": "rm -rf lib && tsc -b && oclif-dev manifest && oclif-dev readme",
-    "test": "jest --runInBand",
+    "test": "mocha --forbid-only \"test/**/*.test.ts\"",
     "version": "oclif-dev readme && git add README.md"
   }
 }

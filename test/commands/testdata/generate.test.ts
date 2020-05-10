@@ -1,32 +1,29 @@
-import * as child from 'child_process';
-import * as fs from 'fs';
-import * as util from 'util';
+import {expect, test} from '@oclif/test';
+import { Messages } from '@salesforce/core';
 
-const exec = util.promisify(child.exec);
+// Initialize Messages with the current plugin directory
+Messages.importMessagesDirectory(__dirname);
+const messages = Messages.loadMessages('testdata', 'testdataplugin');
 
 describe('sfdx testdata:generate', () => {
-    jest.setTimeout(100000);
-
-    const workspace = './testWorkspace';
-
-    beforeAll(async () => {
-        if ( fs.existsSync(workspace)) {
-            fs.rmdirSync(workspace);
-        }
-        fs.mkdirSync(workspace);
+    test
+    .stdout()
+    .stderr()
+    .command(['testdata:generate', '--schemaid', 'ea4x6ba0', '--count', '100', '--sobject', 'account'])
+    .it('API Key not supplied error check', ctx => {
+        expect(ctx.stderr).to.contains(messages.getMessage('apiKeyMissingMessage'));
     });
 
-    it('API Key not supplied', async () => {
-        const command = 'sfdx testdata:generate --schemaid=ea4x6ba0 --count=100 --sobject=account';
-        try {
-            await exec(command, { cwd: 'testWorkspace' });
-        } catch (err) {
-            console.log(err.stderr);
-        }
-    });
-
-    afterAll(async () => {
-        fs.rmdirSync(workspace);
+    test
+    .env({MAPIKEY: 'foobar'})
+    .nock('https://api.mockaroo.com', api => api
+        .get('/api/ea4x6ba0?count=100&key=foobar')
+        .reply(200, '[{"externalId":1,"Name":"Zooveo"},{"externalId":2,"Name":"Mynte"}]')
+    )
+    .stdout()
+    .command(['testdata:generate', '--schemaid', 'ea4x6ba0', '--count', '100', '--sobject', 'account'])
+    .it('server error check when response status is 200', ctx => {
+        expect(ctx.stdout).to.contain('file successfully generated');
     });
 
 });

@@ -118,7 +118,7 @@ export default class Generate extends SfdxCommand {
       } else {
           finalresponse = {
             sucess: false,
-            result: response.statusText + '.The status code of response is' + response.status
+            result: response.statusText + '.The status code of response is ' + response.status
           };
           throw new SfdxError(finalresponse['result']);
       }
