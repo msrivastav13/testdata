@@ -33,7 +33,7 @@ jobs:
     - name: Setup Node.js
       uses: actions/setup-node@v1
       with:
-        registry-url: 'https://registry.npm.org'
+        registry-url: 'https://registry.npmjs.org/'
     - env:
         NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
       name : Release plugin
