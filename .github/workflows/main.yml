@@ -25,9 +25,3 @@ jobs:
     # run tests
     - name : Run tests
       run: yarn test
-    # submit to codecov cloud for coverage report
-    - name: Submitting code coverage to codecov
-      run: 
-      command: |
-            ./node_modules/.bin/nyc report --reporter text-lcov > coverage.lcov
-            curl -s https://codecov.io/bash | bash
