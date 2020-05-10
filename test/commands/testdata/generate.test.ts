@@ -6,7 +6,7 @@ import * as util from 'util';
 
 // Initialize Messages with the current plugin directory
 Messages.importMessagesDirectory(__dirname);
-const messages = Messages.loadMessages('testdata', 'testdataplugin');
+const messages = Messages.loadMessages('seedmockdata', 'testdataplugin');
 const exec = util.promisify(child.exec);
 
 describe('sfdx testdata:generate', () => {
