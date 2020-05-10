@@ -1,6 +1,6 @@
 {
   "name": "seedmockdata",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "bugs": "https://github.com/Projects/testdata/issues",
   "dependencies": {
     "@oclif/command": "^1",
