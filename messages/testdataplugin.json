@@ -1,8 +1,5 @@
 {
-  "commandDescription": "print a greeting and your org IDs",
-  "nameFlagDescription": "name to print",
-  "forceFlagDescription": "example boolean flag",
-  "errorNoOrgResults": "No results found for the org '%s'.",
+  "commandDescription": "Creates test data using mockaroo schema. Requires mockaroo schemaId and key. Set your mockaroo key using environment variable MAPIKEY",
   "schemaDescription": "Mockaroo Schema Id",
   "objectDescription" : "Name of the Salesforce object",
   "outputdirDescription" : "path of the output directory of file",

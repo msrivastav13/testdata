@@ -17,10 +17,12 @@ export default class Generate extends SfdxCommand {
   public static description = messages.getMessage('commandDescription');
 
   public static examples = [
-    `$ sfdx testdata:generate --schemaid=ea4x6ba0 --count=100 --sobject=account --json
-      TestData generated successfully`,
-    `$ sfdx testdata:generate --schemaid=eax36ba0 --sobject=Contact
-    TestData generated successfully.`
+    `Generates testdata from mockaroo schemaid and creates a json file account.json with 10 rows of data in ./data directory
+      $ sfdx testdata:generate --schemaid=ea4x6ba0 --count=100 --sobject=account --json`,
+    `Generates testdata from mockaroo schemaid and creates a json file Contact.json in ./data directory
+      $ sfdx testdata:generate --schemaid=eax36ba0 --sobject=Contact`,
+    `Generates testdata from mockaroo schemaid and creates a csv file Contact.csv in ./data directory
+      $ sfdx testdata:generate --schemaid=eax36ba0 --sobject=Contact --outputdir='./data' --format=csv`
   ];
 
   protected static flagsConfig = {

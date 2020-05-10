@@ -34,7 +34,7 @@ USAGE
 
 ## `sfdx testdata:generate -s <string> [-o <string>] [-d <string>] [-f <string>] [-c <integer>] [--json] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]`
 
-print a greeting and your org IDs
+Creates test data using mockaroo schema. Requires mockaroo schemaId and key. Set your mockaroo key using environment variable MAPIKEY
 
 ```
 USAGE
@@ -62,35 +62,14 @@ OPTIONS
                                                                                     this command invocation
 
 EXAMPLES
-  $ sfdx testdata:generate --schemaid=ea4x6ba0 --count=100 --sobject=account --json
-         TestData generated successfully
-  $ sfdx testdata:generate --schemaid=eax36ba0 --sobject=Contact
-       TestData generated successfully.
+  Generates testdata from mockaroo schemaid and creates a json file account.json with 10 rows of data in ./data 
+  directory
+         $ sfdx testdata:generate --schemaid=ea4x6ba0 --count=100 --sobject=account --json
+  Generates testdata from mockaroo schemaid and creates a json file Contact.json in ./data directory
+         $ sfdx testdata:generate --schemaid=eax36ba0 --sobject=Contact
+  Generates testdata from mockaroo schemaid and creates a csv file Contact.csv in ./data directory
+         $ sfdx testdata:generate --schemaid=eax36ba0 --sobject=Contact --outputdir='./data' --format=csv
 ```
 
 _See code: [src/commands/testdata/generate.ts](https://github.com/Projects/testdata/blob/v0.0.0/src/commands/testdata/generate.ts)_
 <!-- commandsstop -->
-<!-- debugging-your-plugin -->
-# Debugging your plugin
-We recommend using the Visual Studio Code (VS Code) IDE for your plugin development. Included in the `.vscode` directory of this plugin is a `launch.json` config file, which allows you to attach a debugger to the node process when running your commands.
-
-To debug the `hello:org` command: 
-1. Start the inspector
-  
-If you linked your plugin to the sfdx cli, call your command with the `dev-suspend` switch: 
-```sh-session
-$ sfdx hello:org -u myOrg@example.com --dev-suspend
-```
-  
-Alternatively, to call your command using the `bin/run` script, set the `NODE_OPTIONS` environment variable to `--inspect-brk` when starting the debugger:
-```sh-session
-$ NODE_OPTIONS=--inspect-brk bin/run hello:org -u myOrg@example.com
-```
-
-2. Set some breakpoints in your command code
-3. Click on the Debug icon in the Activity Bar on the side of VS Code to open up the Debug view.
-4. In the upper left hand corner of VS Code, verify that the "Attach to Remote" launch configuration has been chosen.
-5. Hit the green play button to the left of the "Attach to Remote" launch configuration window. The debugger should now be suspended on the first line of the program. 
-6. Hit the green play button at the top middle of VS Code (this play button will be to the right of the play button that you clicked in step #5).
-<br><img src=".images/vscodeScreenshot.png" width="480" height="278"><br>
-Congrats, you are debugging!

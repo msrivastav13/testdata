@@ -3,7 +3,6 @@
   "compilerOptions": {
     "outDir": "./lib",
     "rootDir": "./src",
-    "types": ["node", "jest", "node-fetch"],
     "esModuleInterop": true
   },
   "include": [
