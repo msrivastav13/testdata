@@ -1,0 +1,35 @@
+name: sfdx plugin testcases
+
+on:
+  push:
+    branches:
+      - '*'
+
+jobs:
+  build:
+    name: feature test cases
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [10.x, 12.x]
+    # prepare node environment and install dependencies
+    steps:
+    - uses: actions/checkout@v2
+    - name: Use Node.js
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node-version }}
+    - name: Install dependencies
+      run: yarn --frozen-lockfile
+    # build project
+    - name: Build project
+      run: yarn prepack
+    # run tests
+    - name : Run tests
+      run: yarn test
+    # submit to codecov repository
+    - name : Report CodeCoverage on codecov
+      run : |
+            ./node_modules/.bin/nyc report --reporter text-lcov > coverage.lcov
+            curl -s https://codecov.io/bash | bash

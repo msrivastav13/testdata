@@ -1,10 +1,13 @@
-name: testData sfdx plugin testcases
+name: release plugin
 
-on: [push]
+on:
+  push:
+    branches:
+      - master
 
 jobs:
   build:
-    name: testData sfdx plugin testcases
+    name: release plugin
     runs-on: ubuntu-latest
 
     strategy:
@@ -25,6 +28,9 @@ jobs:
     # run tests
     - name : Run tests
       run: yarn test
+    # release plugin
+    - name : Release plugin
+      run: npm publish
     # submit to codecov repository
     - name : Report CodeCoverage on codecov
       run : |
