@@ -10,14 +10,15 @@ jobs:
     strategy:
       matrix:
         node-version: [8.x, 10.x, 12.x]
-
-    steps:
     # prepare node environment and install dependencies
+    steps:
     - uses: actions/checkout@v2
-    - name: Install Dependencies
+    - name: Use Node.js
+      uses: actions/setup-node@v1
       with:
-        node-version: ${{ matrix.node-version }}
-      run: yarn install
+        node-version: '12.x'
+    - name: Install dependencies
+      run: yarn --frozen-lockfile
     # build project
     - name: Build project
       run: yarn prepack
