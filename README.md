@@ -16,13 +16,13 @@ You will need to sign up for the mockaroo API services and generate a schema.
 
 ### **Install as plugin (Recommended approach for Installing)**
 
- Install plugin using command : `sfdx plugins:install mo-dx-plugin`
+ Install plugin using command : `sfdx plugins:install seedmockdata`
 
 
 ### **Install from source(Preferred approach for debugging and enhancing the plugin)**
 1. Install the SDFX CLI.
 
-2. Clone the repository: `git clone git@github.com:msrivastav13/mo-dx-plugin.git`
+2. Clone the repository: `git clone git@github.com:msrivastav13/testdata.git`
 
 3. Install using yarn: `yarn install`
 
@@ -30,11 +30,13 @@ You will need to sign up for the mockaroo API services and generate a schema.
 
 ## Prequsite
 
-1. Get your mockaroo api key from your Account Settings. You can find under MyAccount section
+1. Requires [mockaroo](https://mockaroo.com/) account
 
-2. Set the MAPIKEY environment variable. On MAC OSX for session based type '$ export MAPIKEY=<apikey>'
+2. Get your mockaroo api key from your My Account Settings.
 
-3. Create a Schema mapping in mockaroo. Note that always choose one field with name  externalId and map to an Id function in mockaroo
+3. Set the MAPIKEY environment variable. On MAC OSX for type `export MAPIKEY=<apikey>`. The key is presisted only for current terminal session. For persisitng it for ever add env variable in bash_profile
+
+4. Create a Schema mapping in mockaroo. Note that always choose one field with name  externalId and map to an Id function in mockaroo
 
 USAGE
 
