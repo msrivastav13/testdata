@@ -9,7 +9,7 @@
     "@salesforce/command": "^2",
     "@salesforce/core": "^2",
     "csvjson": "^5.1.0",
-    "node-fetch": "^2.6.1",
+    "node-fetch": "^2.6.7",
     "tslib": "^1"
   },
   "devDependencies": {
